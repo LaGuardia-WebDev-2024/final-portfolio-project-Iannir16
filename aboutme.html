@@ -4,10 +4,23 @@
     <meta charset="utf-8" />
     <title>Final Project - About Me</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fascinate&family=Grand+Hotel&family=Patrick+Hand&display=swap" rel="stylesheet">
     <style>
       body{
         background-color: #1d2122;
       }
+      h2{
+      font-family: "Patrick Hand SC", cursive;
+      font-weight: 400;
+      font-style: normal;
+      color: aliceblue;
+      width: fit-content;
+      margin: auto;
+      }
+
+
     </style>
   </head>
   <body>
@@ -19,5 +32,83 @@
       <li><a href="resume.html">Resume</a></li>
     </ul> 
         
+<div id="movie-section" class="section red-bg">
+  <h2>My Favorite Movie</h2><br><h2>How To Train Your Dragon</h2>
+</div>
+
+<div id="Show-section" class="section orange-bg">
+  <h2>My Favorite Show</h2><br><h2>Outer Banks</h2>
+</div>
+
+<div id="Anime-section" class="section yellow-bg">
+  <h2>My Favorite Anime</h2><br><h2>One Piece</h2>
+</div>
+
+<div id="Artist-section" class="section lime-bg">
+  <h2>My Favorite Artist</h2><br><h2>Frank Ocean</h2>
+</div>
+
+<div id="Album-section" class="section green-bg">
+  <h2>My Favorite Album</h2><br><h2>Red Moon In Venus</h2>
+</div>
+
+<div id="Food-section" class="section blue-bg">
+  <h2>My Favorite Food</h2><br><h2>Chicken Ceaser Salad</h2>
+</div>
+
+<div id="Snack-section" class="section navy-bg">
+  <h2>My Favorite Snack</h2><br><h2>Chocolate Chip Cookies</h2>
+</div>
+
+<div id="hobbie-section" class="section purple-bg">
+  <h2>My Favorite Hobie</h2><br><h2>Reading</h2>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const body = document.body;
+    const moviesection = document.getElementById('movie-section');
+    const Showsection = document.getElementById('Show-section');
+    const Animesection = document.getElementById('Anime-section');
+    const Artistsection = document.getElementById('Artist-section');
+    const Albumsection = document.getElementById('Album-section');
+    const Foodsection = document.getElementById('Food-section');
+    const Snacksection = document.getElementById('Snack-section');
+    const hobbiesection = document.getElementById('hobbie-section');
+
+    const sections = [
+        { element: moviesection , className: 'red-bg' },
+        { element: Showsection , className: 'orange-bg' },
+        { element: Animesection , className: 'yellow-bg' },
+        { element: Artistsection , className: 'lime-bg' },
+        { element: Albumsection , className: 'green-bg' },
+        { element: Foodsection, className: 'blue-bg' },
+        { element: Snacksection , className: 'navy-bg' },
+        { element: hobbiesection, className: 'purple-bg' },
+        
+    ];
+
+    function updateBackground() {
+        const scrollPosition = window.scrollY + window.innerHeight / 2; // Check midpoint of viewport
+
+        for (let i = sections.length - 1; i >= 0; i--) {
+            const section = sections[i];
+            if (scrollPosition >= section.element.offsetTop) {
+                body.className = ''; // Clear existing classes
+                body.classList.add(section.className);
+                break;
+            }
+        }
+    }
+
+    // Set initial background
+    updateBackground();
+
+    // Listen for scroll events
+    window.addEventListener('scroll', updateBackground);
+});
+
+</script>
+
   </body>
 </html>
